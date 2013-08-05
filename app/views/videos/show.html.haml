@@ -2,9 +2,9 @@
 	.container
 		.row
 			.video_large_cover.span7.offset1
-				%img(src="http://dummyimage.com/665x375/000000/00a2ff")
+				%img(src="#{@video.big_cover_url}")
 			.video_info.span3
 				%header
-					%h3 #{@title}
+					%h3 #{@video.title}
 					%span Rating: ???
-				%p #{@description}
+				%p #{@video.description}

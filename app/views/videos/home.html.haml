@@ -2,5 +2,6 @@
   .videos.row
     - @videos.each do |vid|
       .video.span2
-        %img(src="#{vid.description}")
+        = link_to video_path(vid.id), nil do
+          %img(src="#{vid.small_cover_url}")
 
