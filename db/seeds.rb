@@ -49,3 +49,7 @@ Video.create(
 	description:"Bursting with mind-blowing action sequences and spectacular visual effects, Colin Farrell stars as Douglas Quaid, a man on the run after a mind-bending procedure at Rekall goes horribly wrong. Co-starring Kate Beckinsale and Jessica Biel.
 
 ")
+
+Category.create(cat: "Drama")
+Category.create(cat: "Action")
+Category.create(cat: "Espionage")

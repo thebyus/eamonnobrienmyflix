@@ -9,30 +9,31 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805184839) do
+ActiveRecord::Schema.define(version: 20130805211217) do
 
-  create_table "categories", :force => true do |t|
+  create_table "categories", force: true do |t|
     t.string   "cat"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "video_categories", :force => true do |t|
+  create_table "video_categories", force: true do |t|
     t.integer  "video_id"
     t.integer  "category_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "videos", :force => true do |t|
+  create_table "videos", force: true do |t|
     t.string   "title"
     t.string   "small_cover_url"
     t.string   "big_cover_url"
     t.text     "description"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "category_id"
   end
 
 end
