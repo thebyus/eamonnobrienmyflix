@@ -2,11 +2,18 @@ require 'spec_helper'
 
 describe Video do 
 	it "saves itself"	 do
-		video = Video.new(title:"Life of Pi", description: "Based on Yann Martel's best-selling novel, this coming-of-age tale recounts the adventures of Pi, an Indian boy who is the sole survivor of a shipwreck. Pi finds himself on a lifeboat with only some zoo animals for company.
-
-")
+		video = Video.new(title:"Test", description: "Testing")
 		video.save
-		Video.first.title.should == "Life of Pi"
+		Video.first.title.should == "Test"
+	end
+end
+
+describe Video do
+	it "belongs to category" do
+		Category.create(cat:"Test")
+		video = Video.first
+		video.category << Category.first
+		Video.category.should =="Test"
 
 	end
 end
