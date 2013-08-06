@@ -9,6 +9,9 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 
+group :test, :development do
+	gem 'rspec-rails'
+end
 
 group :development do
   gem 'sqlite3'
