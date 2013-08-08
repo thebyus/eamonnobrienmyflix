@@ -1,5 +1,12 @@
 require 'spec_helper'
 
+describe Category do
+	it { should have_many(:videos).through(:video_categories) }
+end
+
+=begin
+require 'spec_helper'
+
 describe Category do 
 	it "saves itself"	 do
 		cat = Category.new(cat:"Test")
@@ -25,3 +32,4 @@ describe Category do
 		vid3.categories.should == [cat1]
 	end
 end
+=end
