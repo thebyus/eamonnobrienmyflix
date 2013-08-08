@@ -17,7 +17,9 @@ describe Video do
 		cat1 = Category.create!(cat:"Test")
 		cat2 = Category.create!(cat: "Test2")
 		vid = Video.create!(title: "Test2")
+
 		vid.categories << [cat1, cat2]
-		vid.categories.size.should == 2
+		
+		vid.categories.should == [cat1, cat2]
 	end
 end

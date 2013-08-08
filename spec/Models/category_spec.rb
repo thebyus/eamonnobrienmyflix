@@ -14,12 +14,14 @@ describe Category do
 		vid1 = Video.create!(title: "Test1")
 		vid2 = Video.create!(title: "Test2")
 		vid3 = Video.create!(title: "Test3")
-		Category.create!(cat:"Test1")
+		cat1 = Category.create!(cat:"Test1")
 		
-		vid1 << Category.first
-		vid2 << Category.first
-		vid3 << Category.first
+		vid1.categories << [cat1]
+		vid2.categories << [cat1]
+		vid3.categories << [cat1]
 
-		Category.first.size.should == 3
+		vid1.categories.should == [cat1]
+		vid2.categories.should == [cat1]
+		vid3.categories.should == [cat1]
 	end
 end
