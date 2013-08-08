@@ -15,15 +15,15 @@ ActiveRecord::Schema.define(version: 20130805211217) do
 
   create_table "categories", force: true do |t|
     t.string   "cat"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "video_categories", force: true do |t|
     t.integer  "video_id"
     t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "videos", force: true do |t|
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20130805211217) do
     t.string   "small_cover_url"
     t.string   "big_cover_url"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "category_id"
   end
 
