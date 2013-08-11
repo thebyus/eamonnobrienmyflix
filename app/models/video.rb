@@ -6,8 +6,7 @@ class Video < ActiveRecord::Base
 	validates :description, presence: true
 
 	def self.search_by_title(title)
-		Video.where(["title LIKE :tag", {:tag => "%#{title}%"}])#.pluck(:title)
-
+		Video.where("title LIKE ?", "%#{title}%")
 	end
 
 end
