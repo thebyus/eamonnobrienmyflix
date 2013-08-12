@@ -36,7 +36,7 @@ describe Category do
 			5.times {big_bang = Video.create!(title: "The Big Bang Theory", description: "Nerds live next door to a cute girl").categories <<[comedy]}
 			today = Video.create!(title: "Today's Show", description: "Today's show").categories<<[comedy]
 			
-			comedy.recent_videos.should_not == [cosby]
+			comedy.recent_videos.should_not include(cosby)
 		end
 
 		it "returns empty array if category has no videos"
