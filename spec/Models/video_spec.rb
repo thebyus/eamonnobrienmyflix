@@ -26,7 +26,7 @@ describe Video do
 			vid1 = Video.create!(title: v1, description: "testing")
 			vid2 = Video.create!(title: v2, description: "testing")
 			vid3 = Video.create!(title: v3, description: "testing")
-			Video.search_by_title("l").should match_array {[vid1, vid2, vid3]}
+			Video.search_by_title("l").should match_array [vid1, vid2, vid3]
 		end
 	end
 end

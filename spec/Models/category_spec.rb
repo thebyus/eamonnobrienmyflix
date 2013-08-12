@@ -39,10 +39,11 @@ describe Category do
 			comedy.recent_videos.should_not include(cosby)
 		end
 
-		it "returns empty array if category has no videos"
+		it "returns empty array if category has no videos" do
 			comedy = Category.create!(cat: "Comedy")
 
 			comedy.recent_videos.should == []
+		end
 	end
 end
 
