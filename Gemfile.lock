@@ -150,7 +150,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap_form
   coffee-rails
-  fabrication (= 2.7.2)
+  fabrication
   faker
   haml-rails
   jquery-rails

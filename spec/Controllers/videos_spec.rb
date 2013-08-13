@@ -8,8 +8,7 @@ describe VideosController do
       end
 
       it "sets the @video variable" do
-        vid = Video.create!(title: "Argo", description: "Get Americans out of Iran in the '70's")
-#        vid = Fabricate(:video)
+        vid = Fabricate(:video)
 
         get :show, id: vid.id
         expect(assigns(:video)).to eq(vid)
