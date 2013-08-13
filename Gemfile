@@ -10,6 +10,8 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'bootstrap_form'
 gem 'bcrypt-ruby', '3.0.0'
+gem 'fabrication'
+gem 'faker'
 
 group :test, :development do
 	gem 'rspec-rails'
