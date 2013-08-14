@@ -10,7 +10,7 @@ class SessionsController<ApplicationController
       redirect_to home_path, notice: 'You are now signed in!'
     else
       flash[:error] = "Sorry, invalid email or password. Please try again!"
-      render sign_in_path
+      redirect_to sign_in_path
     end
   end
 
