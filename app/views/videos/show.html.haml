@@ -27,13 +27,13 @@
           %input(type="submit" value="Submit" class="btn")
           %a(href="") Cancel
       %header
-        %h3 User Reviews (#{@reviews.count})
+        %h3 User Reviews (#{@review.count})
       %ul
-        - @reviews.each do |review|
+        - @review.each do |review|
           %article.review
             %li.row
               .span2
                 %span Rating: #{review.rating} / 5
-                %p by <a href="">#{review.user.full_name</a>
+                %p by <a href="">#{review.user.full_name}</a>
               .span8
                 %p = review.content
