@@ -6,7 +6,7 @@ describe ReviewsController do
       context "valid input" do
         it "creates a review" do
           video = Fabricate(:video)
-          review = Fabricate.attributes_for(:review), video_id :video.video_id
+          post :create, review: Fabricate.attributes_for(:review, video_id: video.id)
           expect(Review.count).to eq(1)
         end
         it "creates a review associated with video"
