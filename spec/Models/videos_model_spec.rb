@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe Video do
-  it {should have_many(:categories).through(:video_categories)}
-  it {should validate_presence_of(:title) }
-  it {should validate_presence_of(:description) }
+  it { should have_many(:categories).through(:video_categories) }
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:description) }
+  it { should have_many (:reviews).order("created_at DESC") }
 
   describe ".search_by_title" do
     it "returns empty array if the search finds no match" do
@@ -17,7 +18,7 @@ describe Video do
       vid1 = Video.create!(title: v, description: "testing")
       Video.search_by_title(v).should == [vid1]
     end
-  
+
     it "returns as many matches as the search finds" do
       v1 = "Flight of Fancy"
       v2 = "Flight of the Navigator"
