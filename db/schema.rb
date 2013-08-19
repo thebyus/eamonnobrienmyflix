@@ -11,12 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130811194656) do
+ActiveRecord::Schema.define(version: 20130818235653) do
 
   create_table "categories", force: true do |t|
     t.string   "cat"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "queue_items", force: true do |t|
+    t.integer  "video_id"
+    t.integer  "user_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.text     "content"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -30,8 +47,8 @@ ActiveRecord::Schema.define(version: 20130811194656) do
   create_table "video_categories", force: true do |t|
     t.integer  "video_id"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "videos", force: true do |t|
@@ -39,8 +56,8 @@ ActiveRecord::Schema.define(version: 20130811194656) do
     t.string   "small_cover_url"
     t.string   "big_cover_url"
     t.text     "description"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "category_id"
   end
 

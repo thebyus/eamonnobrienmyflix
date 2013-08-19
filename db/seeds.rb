@@ -36,7 +36,7 @@ Video.create(
 
 ").categories<<[Drama]
 
-Video.create(
+flight = Video.create(
 	title:"Flight", 
 	small_cover_url:"/covers/flight_small_cover.jpg", 
 	big_cover_url:"/covers/flight_big_cover.jpg", 
@@ -60,3 +60,7 @@ Video.create(
 
 ").categories<<[Action, Espionage]
 
+eamonn = User.create!( full_name: "Eamonn O'Brien", password: "password", email: "eamonn.p.obrien@gmail.com" )
+
+Review.create(user_id: 1, video_id: 4, rating: 2, content: "A whole lot of people not flying!")
+Review.create(user_id: 1, video_id: 4, rating: 4, content: "This movie is awesome. Denzel at his BEST!")
