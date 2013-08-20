@@ -16,6 +16,6 @@ class QueueItem <ActiveRecord::Base
   end
 
   def category
-
+    video.categories.first
   end
 end
