@@ -10,7 +10,10 @@ describe QueueItemsController do
       get :index
       expect(assigns(:queue_items)).to match_array([queue_item1, queue_item2])
     end
-    it "should redirect to the sign in page for unathenticated users"
 
+    it "should redirect to the sign in page for unathenticated users" do
+      get :index
+      expect(response).to redirect_to sign_in_path
+    end
   end
 end
