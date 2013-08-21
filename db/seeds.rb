@@ -62,8 +62,8 @@ Video.create(
 
 eamonn = User.create!( full_name: "Eamonn O'Brien", password: "password", email: "eamonn.p.obrien@gmail.com" )
 
-Review.create(user_id: 1, video_id: 4, rating: 2, content: "A whole lot of people not flying!")
-Review.create(user_id: 1, video_id: 4, rating: 4, content: "This movie is awesome. Denzel at his BEST!")
+Review.create(user_id: 1, video_id: 1, rating: 2, content: "A whole lot of hiding!")
+Review.create(user_id: 1, video_id: 2, rating: 4, content: "This movie is awesome!")
 
 QueueItem.create(user_id: 1, video_id: 1)
 QueueItem.create(user_id: 1, video_id: 2)

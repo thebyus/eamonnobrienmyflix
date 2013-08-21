@@ -8,6 +8,8 @@
           %h3 #{@video.title}
           %span Rating: #{@review.average('Rating')}
         %p #{@video.description}
+        .actions
+          = link_to "+ My Queue", queue_items_path, method: :post, class: 'btn'
 
 %section.reviews.container
   .row
