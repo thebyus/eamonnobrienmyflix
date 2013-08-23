@@ -13,6 +13,7 @@ Myflix::Application.routes.draw do
       post :search, to: 'videos#search'
     end
     resources :reviews, only: [:create]
+    resources :queue_items, only: [:create]
   end
 
   resources :categories, only: [:show]
