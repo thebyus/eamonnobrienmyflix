@@ -11,6 +11,10 @@ class QueueItemsController <ApplicationController
     redirect_to my_queue_path
   end
 
+  def destroy
+    redirect_to my_queue_path
+  end
+
   private
 
   def queue_video(video)
