@@ -15,7 +15,7 @@ describe VideosController do
       review1 = Fabricate(:review, video: vid)
       review2 = Fabricate(:review, video: vid)
       get :show, id: vid.id
-      expect(assigns(:reviews)).to match_array( [review1, review2] )
+      expect(assigns(:review)).to match_array( [review1, review2] )
     end
 
     it "redirects to sign_in for unauthenticated users" do
