@@ -5,3 +5,7 @@ end
 def create_review
   post :create, review: {rating: 4}, video_id: video.id
 end
+
+def create_video
+  @video = Fabricate(:video)
+end

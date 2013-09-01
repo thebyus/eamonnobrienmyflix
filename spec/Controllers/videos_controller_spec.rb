@@ -2,43 +2,40 @@ require 'spec_helper'
 
 describe VideosController do
   describe "GET show" do
+    before do
+      create_video
+    end
+
     it "sets the @video variable for authenticated users" do
-      session[:user_id] = Fabricate(:user).id
-      vid = Fabricate(:video)
-      get :show, id: vid.id
-      expect(assigns(:video)).to eq(vid)
+      set_current_user
+      get :show, id: @video.id
+      expect(assigns(:video)).to eq(@video)
     end
 
     it "sets the @review variable for authenticated users" do
-      session[:user_id] = Fabricate(:user).id
-      vid = Fabricate(:video)
-      review1 = Fabricate(:review, video: vid)
-      review2 = Fabricate(:review, video: vid)
-      get :show, id: vid.id
+      set_current_user
+      review1 = Fabricate(:review, video: @video)
+      review2 = Fabricate(:review, video: @video)
+      get :show, id: @video.id
       expect(assigns(:review)).to match_array( [review1, review2] )
     end
 
-    it "redirects to sign_in for unauthenticated users" do
-      vid = Fabricate(:video)
-      get :show, id: vid.id
-      expect(response).to redirect_to sign_in_path
+    it_behaves_like "requires sign in" do
+      let(:action) { get :show, id: @video.id }
     end
   end
 
   describe "POST search" do
     it "sets @search_result variable for authenticated user"do
-      session[:user_id] = Fabricate(:user).id
+      set_current_user
       argo = Fabricate(:video, title: "Argo")
       flight = Fabricate(:video, title: "Flight")
       post :search, search_term: 'ar'
       expect(assigns(:search_result)).to eq([argo])
     end
 
-    it "redirects unauthenticated user to sign_in" do
-      argo = Fabricate(:video, title: "Argo")
-      flight = Fabricate(:video, title: "Flight")
-      post :search, search_term: 'ar'
-      expect(response).to redirect_to sign_in_path
+    it_behaves_like "requires sign in" do
+      let(:action) { post :search, search_term: 'ar' }
     end
   end
 end
