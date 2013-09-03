@@ -42,18 +42,18 @@ describe QueueItem do
     end
 
     it "creates a review with a rating if no review is present" do
-      video = Fabricate(:video)
-      user = Fabricate(:user)
-      queue_item = Fabricate(:queue_item, user: user, video: video)
+      create_video
+      create_user
+      queue_item = Fabricate(:queue_item, user: @user, video: @video)
       queue_item.rating = 3
       expect(Review.first.rating).to eq(3)
     end
   end
 
     it "return nil when no rating is present" do
-      video = Fabricate(:video)
-      user = Fabricate(:user)
-      queue_item = Fabricate(:queue_item, user: user, video: video)
+      create_video
+      create_user
+      queue_item = Fabricate(:queue_item, user: @user, video: @video)
       expect(queue_item.rating).to eq(nil)
     end
   end
