@@ -4,7 +4,7 @@ describe Video do
   it { should have_many(:categories).through(:video_categories) }
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:description) }
-  it { should have_many (:reviews).order("created_at DESC") }
+  it { should have_many(:reviews) } #.order("created_at DESC") }
 
   describe ".search_by_title" do
     it "returns empty array if the search finds no match" do

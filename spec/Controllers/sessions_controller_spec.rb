@@ -16,8 +16,10 @@ describe SessionsController do
 
   describe "POST create" do
     context "with valid authentication" do
+
+      let(:amy) { Fabricate(:user) }
+
       before do
-        amy = Fabricate(:user)
         post :create, email: amy.email, password: amy.password
       end
 
@@ -35,6 +37,7 @@ describe SessionsController do
     end
 
     context "with invalid authentication" do
+
       before do
         amy = Fabricate(:user)
         post :create, email: amy.email, password: 'wrong_password'
@@ -55,6 +58,7 @@ describe SessionsController do
   end
 
   describe "GET destroy" do
+
     before do
       session[:user_id] = Fabricate(:user).id
       get :destroy
