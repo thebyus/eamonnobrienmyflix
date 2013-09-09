@@ -11,9 +11,17 @@ def create_user
 end
 
 def create_cosby_video
-  Video.create!(title: "The Cosby Show", description: "NYC mom and dad struggle to raise their children", created_at: 1.day.ago)
+  @cosby = Video.create!(title: "The Cosby Show", description: "NYC mom and dad struggle to raise their children", created_at: 1.day.ago)
 end
 
 def create_big_bang_video
-  Video.create!(title: "The Big Bang Theory", description: "Nerds live next door to a cute girl")
+  @big_bang = Video.create!(title: "The Big Bang Theory", description: "Nerds live next door to a cute girl")
+end
+
+def sign_in(a_user=nil)
+    user = a_user || Fabricate(:user)
+    visit sign_in_path
+    fill_in "Email Address", with: user.email
+    fill_in "Password", with: user.password
+    click_button "Sign in"
 end
