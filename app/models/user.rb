@@ -12,6 +12,6 @@ class User <ActiveRecord::Base
   end
 
   def queued_video?(video)
-    true
+    queue_items.map(&:video).include?(video)
   end
 end

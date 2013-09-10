@@ -41,4 +41,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  RSpec.configure do |config|
+  config.color_enabled = true
+end
 end
