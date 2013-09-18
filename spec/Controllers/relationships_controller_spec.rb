@@ -49,4 +49,36 @@ describe RelationshipsController do
       expect(Relationship.count).to eq(1)
     end
   end
+
+  describe "POST create" do
+    it_behaves_like "requires sign in" do
+      let(:action) { post :create, leader_id: 3 }
+    end
+    it "redirects to the people page" do
+      adam = Fabricate(:user)
+      set_current_user(adam)
+      bob = Fabricate(:user)
+      post :create, leader_id: bob.id
+      expect(response).to redirect_to people_path
+    end
+
+    it "creates a relationship where the current user follows the leader" do
+      adam = Fabricate(:user)
+      set_current_user(adam)
+      bob = Fabricate(:user)
+      post :create, leader_id: bob.id
+      expect(adam.following_relationships.first.leader).to eq(bob)
+    end
+
+    it "it does not create a relationship if the current user already follows the leader" do
+      adam = Fabricate(:user)
+      set_current_user(adam)
+      bob = Fabricate(:user)
+      Fabricate(:relationship, leader: bob, follower: adam)
+      post :create, leader_id: bob.id
+      expect(Relationship.count).to eq(1)
+    end
+
+    it "does not allow current user to follow themselves"
+  end
 end
