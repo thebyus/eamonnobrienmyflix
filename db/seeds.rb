@@ -62,6 +62,12 @@ Video.create(
 
 eamonn = User.create!( full_name: "Eamonn O'Brien", password: "password", email: "eamonn.p.obrien@gmail.com" )
 
+tom = User.create!( full_name: "Tom Jones", password: "password", email: "tom@junk.com" )
+
+dick = User.create!( full_name: "Dick Lee", password: "password", email: "dick@junk.com" )
+
+harry = User.create!( full_name: "Harry Hoggins", password: "password", email: "harry@junk.com" )
+
 Review.create(user_id: 1, video_id: 1, rating: 2, content: "A whole lot of hiding!")
 Review.create(user_id: 1, video_id: 2, rating: 4, content: "This movie is awesome!")
 
