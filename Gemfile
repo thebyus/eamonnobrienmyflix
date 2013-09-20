@@ -12,20 +12,24 @@ gem 'bootstrap_form'
 gem 'bcrypt-ruby', '3.0.0'
 gem 'fabrication'
 gem 'faker'
+gem 'jquery-rails'
 
 group :test, :development do
-	gem 'rspec-rails'
-	gem 'shoulda-matchers'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
 end
 
 group :development do
   gem 'sqlite3'
   gem 'pry'
   gem 'pry-nav'
+  gem 'launchy'
 end
 
 group :production do
   gem 'pg'
 end
 
-gem 'jquery-rails'
+
+
