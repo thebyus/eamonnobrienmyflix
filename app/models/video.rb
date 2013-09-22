@@ -11,6 +11,10 @@ class Video < ActiveRecord::Base
     Video.where("title LIKE ?", "%#{search_term}%")
   end
 
+  def to_param
+    token
+  end
+
   private
 
   def generate_token
