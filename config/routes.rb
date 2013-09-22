@@ -8,6 +8,7 @@ Myflix::Application.routes.draw do
   get 'sign_out', to: 'sessions#destroy'
   get 'my_queue', to: 'queue_items#index'
   get 'people', to: 'relationships#index'
+  get 'forgot_password', to: 'forgot_passwords#new'
 
   resources :relationships, only: [:create, :destroy]
 
@@ -25,6 +26,7 @@ Myflix::Application.routes.draw do
 
   resources :users, only: [:create]
   resources :sessions, only: [:create]
+  resources :forgot_passwords, only: [:create]
 
   root to: 'pages#front'
 end
