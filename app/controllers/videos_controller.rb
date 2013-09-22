@@ -7,7 +7,6 @@ class VideosController <ApplicationController
   end
 
   def show
-#    @video = Video.find_by_token(params[:id])
     @video = Video.find(params[:id])
     @review = @video.reviews
   end
