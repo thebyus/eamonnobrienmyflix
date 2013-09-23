@@ -7,10 +7,10 @@ class VideosController <ApplicationController
   end
 
   def show
-    @video = Video.find(params[:id])
-#    @video = User.find_by_token(params[:token])
-
+    @video = User.find_by(token: params[:id])
+#    require 'pry'; binding.pry
     @review = @video.reviews
+
   end
 
   def search

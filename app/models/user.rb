@@ -28,11 +28,9 @@ class User <ActiveRecord::Base
     !(self.follows?(another_user) || self == another_user)
   end
 
-=begin
   def to_param
     token
   end
-=end
 
   private
 
