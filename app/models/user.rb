@@ -32,8 +32,6 @@ class User <ActiveRecord::Base
     token
   end
 
-  private
-
   def generate_token
     self.token = SecureRandom.urlsafe_base64
   end

@@ -8,15 +8,15 @@ describe VideosController do
 
     it "sets the @video variable for authenticated users" do
       set_current_user
-      get :show, id: @video.token
-      expect(assigns(:video)).to eq(@video.token)
+      get :show, id: @video
+      expect(assigns(:video)).to eq(@video)
     end
 
     it "sets the @review variable for authenticated users" do
       set_current_user
       review1 = Fabricate(:review, video: @video)
       review2 = Fabricate(:review, video: @video)
-      get :show, id: @video.token
+      get :show, id: @video
       expect(assigns(:review)).to match_array( [review1, review2] )
     end
 

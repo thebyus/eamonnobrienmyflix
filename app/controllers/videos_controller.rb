@@ -7,7 +7,7 @@ class VideosController <ApplicationController
   end
 
   def show
-    @video = User.find_by(token: params[:id])
+    @video = Video.find(params[:id])
 #    require 'pry'; binding.pry
     @review = @video.reviews
 
