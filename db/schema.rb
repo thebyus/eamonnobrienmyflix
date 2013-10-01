@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922231224) do
+ActiveRecord::Schema.define(version: 20131001040805) do
 
   create_table "categories", force: true do |t|
     t.string   "cat"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invitations", force: true do |t|
+    t.integer  "inviter_id"
+    t.string   "recipient_name"
+    t.string   "recipient_email"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
