@@ -6,10 +6,12 @@ class InvitationsController<ApplicationController
   end
 
   def create
-    invitation = Invitation.create(invitation_params)
-    @invitation = invitation
-    AppMailer.send_invitation_email(invitation).deliver
-    redirect_to new_invitation_path
+    @invitation = Invitation.create(invitation_params)
+    if @invitation
+#      require 'pry' ; binding.pry
+      AppMailer.send_invitation_email(@invitation).deliver
+      redirect_to new_invitation_path
+    end
   end
 
   private
