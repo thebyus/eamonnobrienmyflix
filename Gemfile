@@ -14,6 +14,8 @@ gem 'fabrication'
 gem 'faker'
 gem 'jquery-rails'
 gem 'sidekiq'
+gem 'foreman'
+gem 'unicorn'
 
 group :test, :development do
   gem 'rspec-rails'
