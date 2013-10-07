@@ -13,6 +13,7 @@ gem 'bcrypt-ruby', '3.0.0'
 gem 'fabrication'
 gem 'faker'
 gem 'jquery-rails'
+gem 'sidekiq'
 
 group :test, :development do
   gem 'rspec-rails'
