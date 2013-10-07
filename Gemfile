@@ -25,6 +25,7 @@ group :development do
   gem 'pry'
   gem 'pry-nav'
   gem 'launchy'
+  gem 'letter_opener'
 end
 
 group :production do
