@@ -16,7 +16,7 @@ gem 'jquery-rails'
 gem 'sidekiq'
 gem 'foreman'
 gem 'unicorn'
-gem 'sinatra' require: false
+gem 'sinatra', require: false
 gem 'slim'
 
 group :test, :development do
