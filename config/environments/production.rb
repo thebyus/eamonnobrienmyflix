@@ -70,11 +70,11 @@ Myflix::Application.configure do
   config.eager_load = true
 
   config.action_mailer.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :port           => 587,
+    :address        => 'smtp.mailgun.org',
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'eamonnobrienmyflix.heroku.com',
+    :domain         => 'eamonnobrienmyflix.herokuapp.com',
     :authentication => :plain, }
 
   config.action_mailer.delivery_method = :smtp
