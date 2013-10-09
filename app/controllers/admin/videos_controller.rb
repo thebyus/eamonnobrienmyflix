@@ -7,8 +7,14 @@ class Admin::VideosController < ApplicationController
   end
 
   def create
-    @video = Video.create(admin_add_video_params)
-    redirect_to new_admin_video_path
+    @video = Video.new(admin_add_video_params)
+    if @video.save
+      flash[:success] = "You have successfully added '#{@video.title}'."
+      redirect_to new_admin_video_path
+    else
+      flash[:error] = "You did not fill in all the fields correctly."
+      render :new
+    end
   end
 
   private

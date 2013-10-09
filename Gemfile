@@ -18,6 +18,8 @@ gem 'foreman'
 gem 'unicorn'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :test, :development do
   gem 'rspec-rails'

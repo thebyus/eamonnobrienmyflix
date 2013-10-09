@@ -37,25 +37,51 @@ describe Admin::VideosController do
       it "redirects to the add new video page" do
         set_current_admin
         category = Fabricate(:category)
-        post :create, video: { title: "Cheers", category_id: category.cat, description: "Very funny!" }
+        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!" }
         expect(response).to redirect_to new_admin_video_path
       end
 
       it "creates a video" do
         set_current_admin
         category = Fabricate(:category)
-        post :create, video: { title: "Cheers", category_id: category.cat, description: "Very funny!" }
+        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!" }
         expect(category.videos.count).to eq(1)
       end
 
-      it "sets the flash success message"
+      it "sets the flash success message" do
+        set_current_admin
+        category = Fabricate(:category)
+        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!" }
+        expect(flash[:success]).to be_present
+      end
     end
 
     context "with invalid input" do
-      it "does not create a video"
-      it "renders the :new template"
-      it "sets the @video variable"
-      it "sets the flash error message"
+      before { set_current_admin }
+
+      it "does not create a video" do
+        category = Fabricate(:category)
+        post :create, video: { category_ids: category.id, description: "Very funny!" }
+        expect(category.videos.count).to eq(0)
+      end
+
+      it "sets the @video variable" do
+        category = Fabricate(:category)
+        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!" }
+        expect(assigns(:video)).to be_present
+      end
+
+      it "renders the :new template" do
+        category = Fabricate(:category)
+        post :create, video: { category_ids: category.id, description: "Very funny!" }
+        expect(response).to render_template :new
+      end
+
+      it "sets the flash error message" do
+        category = Fabricate(:category)
+        post :create, video: { category_ids: category.id, description: "Very funny!" }
+        expect(flash[:error]).to be_present
+      end
     end
   end
 end
