@@ -39,6 +39,6 @@ Myflix::Application.routes.draw do
 
   root to: 'pages#front'
 
-  require 'Sidekiq/Web'
-  mount Sidekiq::Web => '/sidekiq'
+#  require 'Sidekiq/Web'
+#  mount Sidekiq::Web => '/sidekiq'
 end
