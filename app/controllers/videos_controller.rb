@@ -8,7 +8,6 @@ class VideosController <ApplicationController
 
   def show
     @video = Video.find(params[:id])
-#    require 'pry'; binding.pry
     @review = @video.reviews
 
   end

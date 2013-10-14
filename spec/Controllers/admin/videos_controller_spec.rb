@@ -34,19 +34,44 @@ describe Admin::VideosController do
     end
 
     context "with valid input" do
+
+      it "adds the large cover for the video" do
+        set_current_admin
+        category = Fabricate(:category)
+        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!", large_cover: "monk_large.jpg", small_cover: "monk.jpg", video_url: "http://www.google.com" }
+        expect(assigns(:video).large_cover).to be_present
+      end
+
+      it "adds the large cover for the video" do
+        set_current_admin
+        category = Fabricate(:category)
+        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!", large_cover: "monk_large.jpg", small_cover: "monk.jpg", video_url: "http://www.google.com" }
+        expect(assigns(:video).small_cover).to be_present
+      end
+
+      it "adds the large cover for the video" do
+        set_current_admin
+        category = Fabricate(:category)
+        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!", large_cover: "monk_large.jpg", small_cover: "monk.jpg", video_url: "http://www.google.com" }
+        expect(assigns(:video).video_url).to be_present
+      end
+
+
       it "redirects to the add new video page" do
         set_current_admin
         category = Fabricate(:category)
-        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!" }
+        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!", large_cover: "monk_large.jpg", small_cover: "monk.jpg", video_url: "http://www.google.com" }
         expect(response).to redirect_to new_admin_video_path
       end
 
       it "creates a video" do
         set_current_admin
         category = Fabricate(:category)
-        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!" }
+        post :create, video: { title: "Cheers", category_ids: category.id, description: "Very funny!", large_cover: "monk_large.jpg", small_cover: "monk.jpg", video_url: "http://www.google.com" }
         expect(category.videos.count).to eq(1)
       end
+
+
 
       it "sets the flash success message" do
         set_current_admin
