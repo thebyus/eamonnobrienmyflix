@@ -19,6 +19,7 @@ gem 'unicorn'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'carrierwave'
+gem 'fog'
 gem 'mini_magick'
 
 group :test, :development do
