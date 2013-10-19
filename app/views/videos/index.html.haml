@@ -1,10 +1,10 @@
-- @categories.each do |c|
-	%article.video_category
-		%header
-			%h3= link_to c.cat, category_path(c)
-		.videos.row
-			- c.recent_videos.each do |vid|
-				.video.span2
-					= link_to video_path(vid.id), nil do
-						%img(src="#{vid.small_cover_url}")
+- @categories.each do |category|
+  %article.video_category
+    %header
+      %h3= link_to category.cat, category_path(category)
+    .videos.row
+      - category.videos.each do |video|
+        .video.span2
+          = link_to video_path(video.id), nil do
+            %img(src="#{video.small_cover}")
 
