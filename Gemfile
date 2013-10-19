@@ -21,6 +21,8 @@ gem 'slim'
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
+gem 'stripe'
+gem 'figaro'
 
 group :test, :development do
   gem 'rspec-rails'
