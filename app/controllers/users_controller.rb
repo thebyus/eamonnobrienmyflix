@@ -11,10 +11,9 @@ class UsersController<ApplicationController
     if @user.save
       handle_invitation
       Stripe.api_key = ENV['STRIPE_SECRET_KEY']
-      Stripe::Charge.create(
+      StripeWrapper::Charge.create(
         :amount => 999,
-        :currency => "usd",
-        :card => params[:stripeToken],
+         :card => params[:stripeToken],
         :description => "Charge for #{@user.email} subscription to EamonnOBrienMyFlix"
         )
       WelcomeBackgroundEmailer.perform_async(@user.id)
