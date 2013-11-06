@@ -10,7 +10,7 @@ describe ReviewsController do
 
       context "valid input" do
         before do
-          post :create, review: Fabricate.attributes_for(:review), video_id: video.id
+          post :create, review: Fabricate.to_params(:review), video_id: video.id
         end
 
         it "redirects to video show page" do
@@ -56,7 +56,7 @@ describe ReviewsController do
 
     it_behaves_like "requires sign in" do
       let(:action) do
-        post :create, review: Fabricate.attributes_for(:review), video_id: video.id
+        post :create, review: Fabricate.to_params(:review), video_id: video.id
       end
     end
   end

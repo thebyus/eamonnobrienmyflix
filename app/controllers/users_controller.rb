@@ -8,17 +8,23 @@ class UsersController<ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      handle_invitation
+    if @user.valid?
       Stripe.api_key = ENV['STRIPE_SECRET_KEY']
-      StripeWrapper::Charge.create(
+      charge = StripeWrapper::Charge.create(
         :amount => 999,
-         :card => params[:stripeToken],
+        :card => params[:stripeToken],
         :description => "Charge for #{@user.email} subscription to EamonnOBrienMyFlix"
         )
-      WelcomeBackgroundEmailer.perform_async(@user.id)
-      session[:user_id] = @user.id
-      redirect_to home_path
+      if charge.successful?
+        @user.save
+        handle_invitation
+        WelcomeBackgroundEmailer.perform_async(@user.id)
+        session[:user_id] = @user.id
+        redirect_to home_path
+      else
+        flash[:error] = charge.error_message
+        render :new
+      end
     else
       render :new
     end
