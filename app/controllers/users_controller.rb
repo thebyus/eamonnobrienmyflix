@@ -10,6 +10,13 @@ class UsersController<ApplicationController
     @user = User.new(user_params)
     if @user.save
       handle_invitation
+      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+      Stripe::Charge.create(
+        :amount => 999,
+        :currency => "usd",
+        :card => params[:stripeToken],
+        :description => "Charge for #{@user.email} subscription to EamonnOBrienMyFlix"
+        )
       WelcomeBackgroundEmailer.perform_async(@user.id)
       session[:user_id] = @user.id
       redirect_to home_path
