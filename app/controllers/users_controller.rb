@@ -9,7 +9,6 @@ class UsersController<ApplicationController
   def create
     @user = User.new(user_params)
     if @user.valid?
-      Stripe.api_key = ENV['STRIPE_SECRET_KEY']
       charge = StripeWrapper::Charge.create(
         :amount => 999,
         :card => params[:stripeToken],
@@ -20,6 +19,7 @@ class UsersController<ApplicationController
         handle_invitation
         WelcomeBackgroundEmailer.perform_async(@user.id)
         session[:user_id] = @user.id
+        flash[:success] = "Thank you for registering with MyFlix!"
         redirect_to home_path
       else
         flash[:error] = charge.error_message

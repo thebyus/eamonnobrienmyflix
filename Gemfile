@@ -25,15 +25,20 @@ gem 'stripe'
 gem 'figaro'
 gem 'unf'
 
+
+group :test do
+  gem 'webmock', '1.11.0'
+  gem 'vcr'
+end
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'capybara-email'
-  gem 'vcr'
-  gem 'webmock', '1.11.0'
   gem 'selenium-webdriver'
   gem 'ffi', '1.9.3'
+  gem 'database_cleaner'
 end
 
 group :development do
