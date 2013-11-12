@@ -8,7 +8,7 @@ require 'capybara/rspec'
 require 'capybara/email/rspec'
 require 'sidekiq/testing'
 require 'vcr'
-require 'webmock/rspec'
+#require 'webmock/rspec'
 
 
 Sidekiq::Testing.inline!
