@@ -12,6 +12,7 @@ class UsersController<ApplicationController
 
     if result.successful?
       flash[:success] = "Thank you for registering with MyFlix!"
+      session[:user_id] = @user.id
       redirect_to home_path
     else
       flash[:error] = result.error_message

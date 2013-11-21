@@ -17,7 +17,6 @@ class UserSignup
         @user.save
         handle_invitation(invitation_token)
         WelcomeBackgroundEmailer.perform_async(@user.id)
-        session[:user_id] = @user.id
         @status = :success
         self
       else
