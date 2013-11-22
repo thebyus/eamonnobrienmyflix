@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "1.9.3"
+ruby "2.0.0"
 
 gem 'rails', '4.0.0'
 gem 'haml-rails'
@@ -23,12 +23,22 @@ gem 'fog'
 gem 'mini_magick'
 gem 'stripe'
 gem 'figaro'
+gem 'unf'
+
+
+group :test do
+  gem 'webmock', '1.11.0'
+  gem 'vcr'
+end
 
 group :test, :development do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'capybara-email'
+  gem 'selenium-webdriver'
+  gem 'ffi', '1.9.3'
+  gem 'database_cleaner'
 end
 
 group :development do

@@ -17,7 +17,7 @@ module Myflix
 
 #    config.active_record.whitelist_attributes = false
     config.assets.enabled = true
-    config.assets.version = '1.0'
+    config.assets.version = '1.1'
     config.generators do |g|
       g.orm :active_record
       g.template_engine :haml
