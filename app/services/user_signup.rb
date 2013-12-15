@@ -13,6 +13,7 @@ class UserSignup
         :card => stripe_token
       )
       if customer.successful?
+        @user.customer_token = customer.customer_token
         @user.save
         handle_invitation(invitation_token)
         WelcomeBackgroundEmailer.perform_async(@user.id)
