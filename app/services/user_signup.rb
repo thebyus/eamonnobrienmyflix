@@ -12,6 +12,7 @@ class UserSignup
         :user => @user,
         :card => stripe_token
       )
+
       if customer.successful?
         @user.customer_token = customer.customer_token
         @user.save
