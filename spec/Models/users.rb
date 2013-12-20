@@ -50,10 +50,19 @@ describe User  do
       adam.follow(bob)
       expect(adam.follows?(bob)).to be_true
     end
+
     it "does not follow ones self" do
       adam = Fabricate(:user)
       adam.follow(adam)
       expect(adam.follows?(adam)).to be_false
+    end
+  end
+
+  describe "deactivate!" do
+    it "deactivates an active user" do
+      adam = Fabricate(:user, active: true)
+      adam.deactivate!
+      expect(adam).not_to be_active
     end
   end
 end

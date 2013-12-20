@@ -7,7 +7,7 @@ describe Admin::VideosController do
     end
 
     it_behaves_like "requires admin" do
-      let(:action) { get :new }
+      let(:action) { post :create }
     end
 
     it "sets the @video to a new video" do
