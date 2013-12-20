@@ -54,14 +54,14 @@ feature "User registers", { js: true, vcr: true } do
   end
 
   def valid_user_info
-    fill_in "Email Address", with: "jim@example.com"
+    fill_in "Email Address", with: "ted@example.com"
     fill_in "Password", with: "password"
-    fill_in "Full Name", with: "Jim Joseph"
+    fill_in "Full Name", with: "Ted Joseph"
   end
 
   def invalid_user_info
     fill_in "Password", with: "password"
-    fill_in "Full Name", with: "Jim Joseph"
+    fill_in "Full Name", with: "Ted Joseph"
   end
 
   def credit_card_info(card_number)

@@ -24,6 +24,7 @@ gem 'mini_magick'
 gem 'stripe'
 gem 'figaro'
 gem 'unf'
+gem 'draper'
 
 
 group :test do

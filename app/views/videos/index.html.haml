@@ -1,5 +1,5 @@
-- @categories.each do |category|
-  %article.video_category
+%article.video_category
+  - @categories.each do |category|
     %header
       %h3= link_to category.cat, category_path(category)
     .videos.row

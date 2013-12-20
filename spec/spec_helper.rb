@@ -8,7 +8,7 @@ require 'capybara/rspec'
 require 'capybara/email/rspec'
 require 'sidekiq/testing'
 require 'vcr'
-require 'webmock/rspec'
+#require 'webmock/rspec'
 
 
 Sidekiq::Testing.inline!
@@ -38,8 +38,15 @@ RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:each) do
