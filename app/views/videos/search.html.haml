@@ -1,5 +1,10 @@
-%article.video_category
-  - @search_result.each do |video|
-    .video.span2
-      = link_to video, nil do
-        %img(src="#{video.small_cover}")
+%article.search
+  - if @search_result.empty?
+    %h1= "No video was found for search term '#{params[:search_term]}'."
+  -else
+    %h1= "Showing results for '#{params[:search_term]}':"
+    - @search_result.each do |vid|
+      .video.span2
+        = link_to vid do
+          %img(src="#{vid.small_cover}")
+
