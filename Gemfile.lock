@@ -29,7 +29,7 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.0.0)
-    bootstrap-sass (3.0.3.0)
+    bootstrap-sass (2.2.1.0)
       sass (~> 3.2)
     bootstrap_form (2.0.1)
     builder (3.1.4)
@@ -252,7 +252,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (= 3.0.0)
-  bootstrap-sass
+  bootstrap-sass (= 2.2.1.0)
   bootstrap_form
   capybara
   capybara-email
