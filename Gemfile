@@ -4,7 +4,7 @@ ruby "2.0.0"
 
 gem 'rails', '4.0.0'
 gem 'haml-rails'
-gem 'bootstrap-sass', '2.2.1.1'
+gem 'bootstrap-sass', '2.2.1.1', --source 'http://rubygems.org/gems/bootstrap-sass/versions/2.2.1.1'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
