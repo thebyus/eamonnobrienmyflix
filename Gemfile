@@ -26,6 +26,7 @@ gem 'stripe_event'
 gem 'figaro'
 gem 'unf'
 gem 'draper'
+gem "rmagick", "~> 2.13.2"
 
 
 group :test do
