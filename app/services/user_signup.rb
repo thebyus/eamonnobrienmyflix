@@ -8,12 +8,13 @@ class UserSignup
 
   def sign_up(stripe_token, invitation_token)
     if @user.valid?
-      charge = StripeWrapper::Charge.create(
-        :amount => 999,
-        :card => stripe_token,
-        :description => "Charge for #{@user.email} subscription to EamonnOBrienMyFlix"
-        )
-      if charge.successful?
+      customer = StripeWrapper::Customer.create(
+        :user => @user,
+        :card => stripe_token
+      )
+
+      if customer.successful?
+        @user.customer_token = customer.customer_token
         @user.save
         handle_invitation(invitation_token)
         WelcomeBackgroundEmailer.perform_async(@user.id)
@@ -21,7 +22,7 @@ class UserSignup
         self
       else
         @status = :failed
-        @error_message = charge.error_message
+        @error_message = customer.error_message
         self
       end
     else

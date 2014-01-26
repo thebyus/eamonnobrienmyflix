@@ -10,7 +10,7 @@ describe Video do
     it "returns empty array if the search finds no match" do
       v = "Argo"
       vid1 = Video.create!(title: v, description: "testing")
-      Video.search_by_title("hello").should == []
+      expect(Video.search_by_title("hello")).to eq([])
     end
 
     it "returns one video if the search finds one match" do

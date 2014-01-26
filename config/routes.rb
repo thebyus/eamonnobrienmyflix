@@ -20,6 +20,7 @@ Myflix::Application.routes.draw do
 
   namespace :admin do
     resources :videos, only: [:new, :create]
+    resources :payments, only: [:index]
   end
 
   resources :users, only: [:show]
@@ -39,6 +40,7 @@ Myflix::Application.routes.draw do
 
   root to: 'pages#front'
 
+  mount StripeEvent::Engine => '/stripe_events'
 #  require 'Sidekiq/Web'
 #  mount Sidekiq::Web => '/sidekiq'
 end
